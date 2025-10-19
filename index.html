@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pathio Tanıtım</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+* {margin:0; padding:0; box-sizing:border-box; font-family: 'Montserrat', sans-serif;}
+body {background: #f0f2f5; color: #333;}
+a {text-decoration:none; color:inherit;}
+
+
+.hero-wrapper {
+    display: flex;
+    justify-content: space-between; 
+    width: 100%;
+    height: 90vh;
+    overflow: hidden;
+    background: #f8f9fb;
+    padding-right: 0; 
+}
+
+.hero-left { 
+    flex: 0.65; 
+    padding: 60px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+    text-align: center; 
+    
+    background: 
+        radial-gradient(circle at 10% 20%, rgba(106, 17, 203, 0.1) 0%, transparent 35%),
+        radial-gradient(circle at 90% 80%, rgba(37, 117, 252, 0.1) 0%, transparent 35%),
+        #f8f9fb !important;
+    color: #333; 
+    position: relative;
+}
+
+.hero-right {
+    flex: 0.35; 
+    background: linear-gradient(135deg, #6a11cb, #2575fc); 
+    color: white;
+    padding: 40px 0; 
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-width: 400px; 
+}
+
+.hero-right h1, .hero-right p {
+    display: none;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.logo {
+    width: 180px; 
+    height: 180px; 
+    border-radius: 20px;
+    background: #2575fc;
+    color: white;
+    margin-right: 15px;
+    margin-bottom: 25px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size: 0.8rem;
+    box-shadow: 0 4px 10px rgba(37,117,252,0.3);
+}
+
+.hero-left .app-title-main { 
+    font-size: 3.8rem; 
+    color: #333; 
+    margin: 0;
+    font-weight: 700;
+}
+.hero-left h2.tagline {
+    font-size: 1.5rem;
+    color: #2575fc;
+    margin-top: 15px;
+    margin-bottom: 30px;
+    font-weight: 400;
+}
+.hero-left .tanitim-metni {
+    background-color: #eaf0ff; 
+    padding: 30px;           
+    border-radius: 15px;      
+    line-height: 1.8;  
+    font-size: 1.25rem;         
+    max-width: 600px; 
+    margin: 20px auto; 
+    color: #555;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.hero-left .cta {
+    text-align: center; 
+    margin-top: 50px; 
+}
+
+.hero-left .cta p {
+    font-size: 1.5rem; 
+    margin-bottom: 30px;
+    color: #333;
+    font-weight: 700; 
+}
+.cta-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+}
+
+.cta-buttons a button { 
+    background: #2575fc;
+    color:white;
+    border:none;
+    padding:18px 35px; 
+    font-size:1.2rem; 
+    border-radius:50px;
+    cursor:pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 20px rgba(37,117,252,0.3);
+}
+
+.cta-buttons a button:hover {
+    background:#6a11cb;
+    transform: scale(1.05);
+    box-shadow: 0 12px 30px rgba(106,17,203,0.3);
+}
+
+.mockup {
+    margin: 0 auto; 
+    width: 320px;  
+    height: 700px; 
+    background: white url('img/anasayfa.jpg') center/cover no-repeat;
+    border-radius: 35px; 
+    box-shadow: 0 15px 40px rgba(0,0,0,0.5); 
+    border: 8px solid #333; 
+    position: relative; 
+}
+
+.mockup::before { 
+    content: '';
+    position: absolute;
+    top: 15px; 
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px; 
+    height: 8px; 
+    background: #333;
+    border-radius: 4px; 
+}
+@keyframes fadeInDown {
+    0% {opacity:0; transform: translateY(-50px);}
+    100% {opacity:1; transform: translateY(0);}
+}
+@keyframes fadeInUp {
+    0% {opacity:0; transform: translateY(50px);}
+    100% {opacity:1; transform: translateY(0);}
+}
+
+
+.container {max-width: 1300px; margin: 30px auto 80px auto; padding: 0 20px;}
+.features {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+}
+
+.feature-card {
+    background: white;
+    border-radius: 25px;
+    box-shadow: 0 18px 40px rgba(0,0,0,0.15);
+    text-align:center;
+    transform: translateY(50px);
+    opacity:0;
+    transition: all 0.5s ease, box-shadow 0.3s ease, transform 0.3s ease;
+    overflow: hidden;
+}
+
+.feature-card:hover {
+    transform: translateY(-15px) scale(1.05);
+    box-shadow: 0 30px 60px rgba(0,0,0,0.25);
+}
+
+.card-mockup {
+    width: 250px; 
+    height: 540px;
+    margin: 35px auto 25px auto; 
+    background: white center/cover no-repeat;
+    background-size: cover;
+    border-radius: 20px; 
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2); 
+    border: 5px solid #333; 
+    position: relative;
+}
+
+.card-mockup::before {
+    content: '';
+    position: absolute;
+    top: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 45px;
+    height: 7px;
+    background: #333;
+    border-radius: 3px;
+}
+
+.card-text-content {
+padding: 0 20px 30px 20px; }
+
+.feature-card h3 {margin-top:0; margin-bottom:12px; color:#2575fc; font-size:1.35rem;}
+.feature-card p {color:#555; font-size:1rem; line-height:1.6;}
+
+
+.cta button {
+    background: #2575fc;
+    color:white;
+    border:none;
+    padding:18px 40px;
+    font-size:1.3rem;
+    border-radius:50px;
+    cursor:pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 20px rgba(37,117,252,0.3);
+}
+.cta button:hover { 
+    background:#6a11cb;
+    transform: scale(1.05);
+    box-shadow: 0 12px 30px rgba(106,17,203,0.3);
+}
+
+footer {
+    background:#333;
+    color:white;
+    text-align:center;
+    padding:40px 20px;
+    font-size:0.9rem;
+}
+</style>
+</head>
+<body>
+
+<div class="hero-wrapper">
+    
+    <div class="hero-left">
+    
+    <img src="img/logo.jpg" alt="Uygulama Logosu" class="logo">
+
+    <h1 class="app-title-main">Pathio</h1>
+
+    <p class="tanitim-metni">"Bir sonraki yolculuğunuzu planlamak artık çok kolay. Pathio, yapay zeka destekli rota planlayıcısı ile size en verimli ve keyifli gezi rotalarını saniyeler içinde sunar. Keşfedin, kaydedin ve anın tadını çıkarın!</p>
+    
+   <div class="cta">
+            <p>Hemen indirin ve maceraya başlayın!</p>
+            <div class="cta-buttons">
+                <a href="https://github.com/bilgecerenyilmaz/uygulama-tanitim/releases/download/v1/app-debug.apk" download>
+                    <button>Uygulamayı İndir (APK)</button>
+                </a>
+            </div>
+        </div>
+    </div> <div class="hero-right">
+        <div class="mockup"></div>
+    </div>
+
+</div>
+
+<div class="container">
+    <h1 style="text-align:center; margin-bottom:30px;">Öne Çıkan Özellikler</h1>
+    <div class="features">
+
+        <div class="feature-card">
+            <div class="card-mockup" style="background-image: url('img/ekle1.jpg');"></div>
+            <div class="card-text-content">
+                <h3>Akıllı Konum Önerileri</h3>
+                <p>İster o an bulunduğunuz konumdan, ister arattığınız bölgeden yola çıkarak yapay zekanın sizin için seçtiği gezilecek yer önerilerini doğrudan harita üzerinde keşfedin.</p>
+            </div>
+        </div>
+        
+        <div class="feature-card">
+            <div class="card-mockup" style="background-image: url('img/ekle2.jpg');"></div>
+            <div class="card-text-content">
+                <h3>Durakları Kolayca Yönetin</h3>
+               <p>Önerilen konumları 'Durak Bilgileri' listesinde görün. Beğendiklerinizi kaydedin, istemediklerinizi silerek listenizi anında düzenleyin.</p>
+            </div>
+        </div>
+        
+        <div class="feature-card">
+            <div class="card-mockup" style="background-image: url('img/ekle3.jpg');"></div>
+            <div class="card-text-content">
+<h3>En Verimli Rota</h3>
+                <p>'Durak Bilgileri' listenizdeki konumlar için en kısa ve en verimli rotayı saniyeler içinde sizin için oluştursun.</p>
+            </div>
+        </div>
+        
+        <div class="feature-card">
+            <div class="card-mockup" style="background-image: url('img/ekle4.jpg');"></div>
+            <div class="card-text-content">
+                <h3>Anlık Rota Detayları</h3>
+               <p>Oluşturulan akıllı rotanızın toplam kilometre ve tahmini süre bilgilerini, durak sırasıyla birlikte net bir şekilde görüntüleyin.</p>
+            </div>
+        </div>
+        
+        <div class="feature-card">
+            <div class="card-mockup" style="background-image: url('img/ekle5.jpg');"></div>
+            <div class="card-text-content">
+<h3>Kayıtlı Duraklar Haritası</h3>
+               <p>Daha önce kaydettiğiniz tüm favori duraklarınızı 'Kayıtlı Duraklar' sekmesinde toplu olarak haritada görün. Farklı şehirler arası planlama için ideal!</p>
+            </div>
+        </div>
+        
+        <div class="feature-card">
+            <div class="card-mockup" style="background-image: url('img/ekle6.jpg');"></div>
+            <div class="card-text-content">
+<h3>Kişisel Rota Oluştur</h3>
+                <p>'Kayıtlı Duraklar' listenizden istediğiniz konumları seçin ve sadece onlardan oluşan size özel bir rota oluşturmaya başlayın.</p>
+            </div>
+        </div>
+        
+        <div class="feature-card">
+            <div class="card-mockup" style="background-image: url('img/ekle7.jpg');"></div>
+            <div class="card-text-content">
+<h3>Özel Rotanız Hazır</h3>
+                <p>Seçtiğiniz favori duraklar arasında oluşturulan en verimli rotayı ve durak sırasını doğrudan harita üzerinde görüntüleyin.</p>
+            </div>
+        </div>
+        
+        <div class="feature-card">
+            <div class="card-mockup" style="background-image: url('img/ekle8.jpg');"></div>
+            <div class="card-text-content">
+<h3>Kişisel Rota Bilgileri</h3>
+               <p>Oluşturduğunuz kişisel rotanın toplam kilometre ve tahmini yolculuk süresi bilgilerine 'Kayıtlı Duraklar' sekmesinden kolayca erişin.</p>
+            </div>
+        </div>
+
+    </div>
+
+    
+</div>
+
+
+
+<script>
+    const cards = document.querySelectorAll('.feature-card');
+    window.addEventListener('scroll', () => {
+        const triggerBottom = window.innerHeight * 0.85;
+        cards.forEach(card => {
+            const cardTop = card.getBoundingClientRect().top;
+            if(cardTop < triggerBottom) {
+                card.style.transform = 'translateY(0)';
+                card.style.opacity = '1';
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
